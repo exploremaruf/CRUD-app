@@ -1,3 +1,4 @@
+import 'package:crudapp/product_add_screen.dart';
 import 'package:flutter/material.dart';
 
 class product_list_screeen extends StatefulWidget {
@@ -43,7 +44,10 @@ class _product_screeenState extends State<product_list_screeen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: (
+            ) {
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> productAddScreen()));
+        },
         child: Icon(
           Icons.add,
           color: Colors.white,
