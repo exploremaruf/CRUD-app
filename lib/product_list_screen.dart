@@ -22,7 +22,7 @@ class _product_screeenState extends State<product_list_screeen> {
           children: [
             Expanded(
               child: ListView.separated(
-                itemCount: 10,
+                itemCount: 100,
                 itemBuilder: (context, index) {
                   return ListTile(
                     leading: Image.network(
@@ -44,9 +44,11 @@ class _product_screeenState extends State<product_list_screeen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (
-            ) {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> productAddScreen()));
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => productAddScreen()),
+          );
         },
         child: Icon(
           Icons.add,
