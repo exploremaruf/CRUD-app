@@ -8,6 +8,11 @@ class productAddScreen extends StatefulWidget {
 }
 
 class _productAddState extends State<productAddScreen> {
+
+  final TextEditingController productimagetecontroller = TextEditingController();
+  final TextEditingController productnametecontroller = TextEditingController();
+  final TextEditingController productpricetecontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,6 +30,7 @@ class _productAddState extends State<productAddScreen> {
                   height: 5,
                 ),
                 TextField(
+                  controller:productimagetecontroller,
                   decoration: InputDecoration(
                     labelText: 'Product Image',
                     hintText: 'Input Product Image',
@@ -34,6 +40,7 @@ class _productAddState extends State<productAddScreen> {
                   height: 10,
                 ),
                 TextField(
+                  controller: productnametecontroller,
                   decoration: InputDecoration(
                     labelText: 'Product Name',
                     hintText: 'Input Product Name',
@@ -43,6 +50,7 @@ class _productAddState extends State<productAddScreen> {
                   height: 10,
                 ),
                 TextField(
+                  controller: productpricetecontroller,
                   decoration: InputDecoration(
                     labelText: 'Product Price',
                     hintText: 'Input Product Price',
@@ -52,7 +60,14 @@ class _productAddState extends State<productAddScreen> {
                   height: 15,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    String prodctname = productnametecontroller.text.trim();
+                    String prodctimage = productimagetecontroller.text.trim();
+                    String prodctprice = productpricetecontroller.text.trim();
+
+                    print('Product Image: '+prodctimage+'Product Name :'+prodctname+'Product Price: '+prodctprice);
+
+                  },
                   child: Text('Add Product'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
