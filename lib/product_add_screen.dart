@@ -9,9 +9,13 @@ class productAddScreen extends StatefulWidget {
 
 class _productAddState extends State<productAddScreen> {
 
-  final TextEditingController productimagetecontroller = TextEditingController();
+  List<String> productdetails =[];
+
+  final TextEditingController productimagetecontroller =
+      TextEditingController();
   final TextEditingController productnametecontroller = TextEditingController();
-  final TextEditingController productpricetecontroller = TextEditingController();
+  final TextEditingController productpricetecontroller =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +34,7 @@ class _productAddState extends State<productAddScreen> {
                   height: 5,
                 ),
                 TextField(
-                  controller:productimagetecontroller,
+                  controller: productimagetecontroller,
                   decoration: InputDecoration(
                     labelText: 'Product Image',
                     hintText: 'Input Product Image',
@@ -61,11 +65,7 @@ class _productAddState extends State<productAddScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    String prodctname = productnametecontroller.text.trim();
-                    String prodctimage = productimagetecontroller.text.trim();
-                    String prodctprice = productpricetecontroller.text.trim();
-
-                    print('Product Image: '+prodctimage+'Product Name :'+prodctname+'Product Price: '+prodctprice);
+                    getdata();
 
                   },
                   child: Text('Add Product'),
@@ -76,11 +76,22 @@ class _productAddState extends State<productAddScreen> {
                     ),
                   ),
                 ),
+
+
               ],
             ),
           ),
         ],
       ),
     );
+  }
+
+  void getdata() {
+    String prodctname = productnametecontroller.text.trim();
+    String prodctimage = productimagetecontroller.text.trim();
+    String prodctprice = productpricetecontroller.text.trim();
+    productdetails.add(prodctname);
+    print(productdetails[0]);
+
   }
 }
